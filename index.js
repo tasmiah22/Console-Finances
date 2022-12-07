@@ -126,15 +126,19 @@ for (var p = 0; p < finances.length; p++) {
 console.log('greatest', greatest);
 console.log('least', least);
 
-// var finances1 = [[month and loss], [month loss]];
+// for the greatest increase in profits //
 
-// // eg //
-// var finances = {['Aug-2016', 569899],
-// ['Sep-2016', 768450],
-// ['Oct-2016', 102685],
-// ['Nov-2016', 795914],
-// ['Dec-2016', 60988],
-// ['Jan-2017', 138230],
-// ['Feb-2017', 671099]
-// };
-// console.log (finances.length);
+var previousMonth = 0;
+
+for (index = 0; index < finances.length; index++) {
+  var currentChange = finances[index][1] - previousMonth;
+  previousMonth = finances[index][1];
+  if (GIncrease < currentChange) {
+    GIncrease = currentChange;
+    GIMonth = finances[index][0];
+    }
+}
+
+console.log(`Greatest Increase in Profits: ${GIMonth} $(${GIncrease})`);
+
+
